@@ -60,11 +60,11 @@ export class CurrencyClient {
         );
     }
 
-    async convert(from: ConversionUnit, toCode: string, date = "latest", minified = !!this.options.minified ): Promise<number> {
-        const { count } = await this.toCurrency(from.code, toCode, date, minified);
-        if (!count) {
+    async convert({ code, count }: ConversionUnit, toCode: string, date = "latest", minified = !!this.options.minified ): Promise<number> {
+        const { count: unit } = await this.toCurrency(code, toCode, date, minified);
+        if (!unit) {
             throw new Error("Conversion failed");
         }
-        return from.count * count;
+        return count * unit;
     }
 }
