@@ -1,8 +1,9 @@
 {
   "name": "currency-api-client",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Client for https://github.com/fawazahmed0/currency-api",
-  "main": "./dist/index.ts",
+  "main": "./dist/index.js",
+  "types": "/dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "test": "ts-mocha tests/**/*.test.ts",
